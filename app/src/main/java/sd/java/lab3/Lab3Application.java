@@ -20,14 +20,14 @@ public class Lab3Application {
     }
 
     private static StringBuffer getInputText(Scanner scanner) {
-        StringBuffer text = new StringBuffer();
-        for (int i = 0; i < 1; i++) {
+        StringBuffer text;
+        while (true) {
             try {
                 System.out.print("Enter the text: ");
                 text = new StringBuffer(scanner.nextLine());
+                break;
             } catch (InputMismatchException e) {
                 System.err.println("Invalid input. Please enter a valid text.");
-                i--;
                 scanner.next();
             }
         }
@@ -35,21 +35,20 @@ public class Lab3Application {
     }
 
     private static int getInputLengthToReplace(Scanner scanner) {
-        int lengthToReplace = 0;
-        for (int i = 0; i < 1; i++) {
+        int lengthToReplace;
+        while (true) {
             try {
                 System.out.print("Enter the word length to replace: ");
                 lengthToReplace = scanner.nextInt();
 
                 if (lengthToReplace < 1) {
                     System.out.println("Please enter positive number.");
-                    i--;
                 }
 
                 scanner.nextLine();
+                break;
             } catch (InputMismatchException e) {
                 System.out.println("Invalid input. Please enter a valid int.");
-                i--;
                 scanner.next();
             }
         }
@@ -58,13 +57,14 @@ public class Lab3Application {
 
     private static StringBuffer getInputReplacement(Scanner scanner) {
         StringBuffer replacement = new StringBuffer();
-        for (int i = 0; i < 1; i++) {
+        while (true) {
             try {
                 System.out.print("Enter the replacement string: ");
-                replacement = new StringBuffer(scanner.nextLine());
+                replacement.setLength(0);
+                replacement.append(scanner.nextLine());
+                break;
             } catch (InputMismatchException e) {
                 System.out.println("Invalid input. Please enter a valid string.");
-                i--;
                 scanner.next();
             }
         }
